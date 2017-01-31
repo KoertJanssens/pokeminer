@@ -1,6 +1,3 @@
-import csv
-import os
-
 ### All lines that are commented out (and some that aren't) are optional ###
 
 DB_ENGINE = 'sqlite:///db.sqlite'
@@ -69,6 +66,13 @@ SIMULTANEOUS_SIMULATION = 10
 ## valid account formats (with PASS and PROVIDER set):
 # (username, iPhone, iOS, device_id)
 # [username]
+
+## If you have a lot of accounts, you can put in a monocle/accounts.csv
+## If an monocle/accounts.csv exists it will be override the accounts in this config
+## One account per line
+## valid account format
+# username,password,provider
+
 ACCOUNTS = [
     ('ash_ketchum', 'pik4chu', 'ptc'),
     ('ziemniak_kalafior', 'ogorek', 'google'),
@@ -77,15 +81,8 @@ ACCOUNTS = [
 ]
 
 
-## If you have a lot of accounts, you can put in a accounts.csv
-## If an accounts.csv exists it will be override the accounts in this config
-## One account per line
-## valid account format
-# username,password,provider
-if os.path.exists('monocle/accounts.csv'):
-    with open('monocle/accounts.csv') as f:
-        data=[tuple(line) for line in csv.reader(f)]
-    ACCOUNTS = data
+
+
 
 
 
