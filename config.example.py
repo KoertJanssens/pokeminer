@@ -80,12 +80,6 @@ ACCOUNTS = [
     ('misty', 'bulbus4ur', 'ptc')
 ]
 
-
-
-
-
-
-
 # key for Bossland's hashing server, otherwise the old hashing lib will be used
 #HASH_KEY = '9d87af14461b93cb3605'  # this key is fake
 

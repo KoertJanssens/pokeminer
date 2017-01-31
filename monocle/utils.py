@@ -26,6 +26,10 @@ except ImportError:
 
 from . import config
 
+if os.path.exists('monocle/accounts.csv'):
+    with open('monocle/accounts.csv') as f:
+        config.ACCOUNTS=[tuple(line) for line in csv.reader(f)]
+
 _optional = {
     'ALT_RANGE': (300, 400),
     'GOOGLE_MAPS_KEY': None,
@@ -284,10 +288,6 @@ def create_account_dict(account):
 
 def create_accounts_dict(old_accounts=None):
     accounts = {}
-    if os.path.exists('monocle/accounts.csv'):
-        with open('monocle/accounts.csv') as f:
-            data=[tuple(line) for line in csv.reader(f)]
-        config.ACCOUNTS = data
 
     for account in config.ACCOUNTS:
         username = account[0]
