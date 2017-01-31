@@ -125,3 +125,10 @@ Desktop.ini
 
 ### Images ###
 monocle/static/monocle-icons
+
+### IntelliJ IDEA ###
+.idea
+
+### Config files ###
+monocle/accounts.csv
+monocle/polygon.txt

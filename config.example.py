@@ -1,3 +1,6 @@
+import csv
+import os
+
 ### All lines that are commented out (and some that aren't) are optional ###
 
 DB_ENGINE = 'sqlite:///db.sqlite'
@@ -72,6 +75,19 @@ ACCOUNTS = [
     ('noideawhattoputhere', 's3cr3t', 'ptc'),
     ('misty', 'bulbus4ur', 'ptc')
 ]
+
+
+## If you have a lot of accounts, you can put in a accounts.csv
+## If an accounts.csv exists it will be override the accounts in this config
+## One account per line
+## valid account format
+# username,password,provider
+if os.path.exists('monocle/accounts.csv'):
+    with open('monocle/accounts.csv') as f:
+        data=[tuple(line) for line in csv.reader(f)]
+    ACCOUNTS = data
+
+
 
 # key for Bossland's hashing server, otherwise the old hashing lib will be used
 #HASH_KEY = '9d87af14461b93cb3605'  # this key is fake
