@@ -66,6 +66,13 @@ SIMULTANEOUS_SIMULATION = 10
 ## valid account formats (with PASS and PROVIDER set):
 # (username, iPhone, iOS, device_id)
 # [username]
+
+## If you have a lot of accounts, you can put in a monocle/accounts.csv
+## If an monocle/accounts.csv exists it will be override the accounts in this config
+## One account per line
+## valid account format
+# username,password,provider
+
 ACCOUNTS = [
     ('ash_ketchum', 'pik4chu', 'ptc'),
     ('ziemniak_kalafior', 'ogorek', 'google'),

@@ -5,6 +5,8 @@ import time
 import socket
 import pickle
 import functools
+import csv
+import os
 
 from os import mkdir
 from os.path import join, exists
@@ -23,6 +25,10 @@ except ImportError:
         return func
 
 from . import config
+
+if os.path.exists('monocle/accounts.csv'):
+    with open('monocle/accounts.csv') as f:
+        config.ACCOUNTS=[tuple(line) for line in csv.reader(f)]
 
 _optional = {
     'ALT_RANGE': (300, 400),
@@ -282,6 +288,7 @@ def create_account_dict(account):
 
 def create_accounts_dict(old_accounts=None):
     accounts = {}
+
     for account in config.ACCOUNTS:
         username = account[0]
         if old_accounts and username in old_accounts:
