@@ -118,7 +118,7 @@ class Worker:
 
         self.api = PGoApi(device_info=device_info)
         if config.HASH_KEY:
-            self.api.activate_hash_server(config.HASH_KEY)
+            self.api.activate_hash_server(choice(config.HASH_KEY))
         self.api.set_position(*self.location)
         if self.proxy:
             self.api.set_proxy(self.proxy)
